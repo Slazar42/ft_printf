@@ -6,7 +6,7 @@
 /*   By: slazar <slazar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 03:18:28 by slazar            #+#    #+#             */
-/*   Updated: 2022/11/01 17:08:09 by slazar           ###   ########.fr       */
+/*   Updated: 2022/11/02 05:07:20 by slazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,25 @@
 
 int	ft_putstr(char *str)
 {
-	int len;
+	int	len;
 
-	while (*str)
+	len = 0;
+	if (!str)
 	{
-		write (1, str, 1);
-		str++;
-		len++;
+		write (1, "(null)", 6);
+		len += 6;
 	}
+	else
+		while (*str)
+		{
+			len += ft_putchar(*str);
+			str++;
+		}
 	return (len);
 }
+// int main()
+// {
+// 	char *t = "tesnthnfnt";
+// 	int a = ft_putstr(t);
+// 	printf("\n %d",a);
+// }

@@ -27,8 +27,8 @@
 	
 # .PHONY:	all clean fclean re
 
-SRC		= ft_printf.c ft_putchar.c 
-#ft_print_puthe.c ft_print_putnbr.c ft_print_putstr.c ft_print_putunbr.c
+SRC		= ft_printf.c ft_putchar.c ft_putnbr.c ft_putstr.c 
+#ft_print_puthe.c ft_print_putstr.c ft_print_putunbr.c
 
 OBJ		= $(SRC:.c=.o)
 

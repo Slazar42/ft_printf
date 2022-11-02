@@ -1,19 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slazar <slazar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/01 03:12:17 by slazar            #+#    #+#             */
-/*   Updated: 2022/11/02 03:35:22 by slazar           ###   ########.fr       */
+/*   Created: 2022/11/02 03:42:05 by slazar            #+#    #+#             */
+/*   Updated: 2022/11/02 04:59:43 by slazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ft_printf.h"
+#include "ft_printf.h"
 
-int	ft_putchar(int c)
+int counter(int nb)
 {
-	write (1, &c, 1);
-	return (1);
+	int num;
+
+	num = 0;
+	if (nb < 0)
+		num++;
+	while (nb)
+	{
+		nb = nb/10;
+		num++;
+	}
+	return (num);
+}
+
+int	ft_putnbr(int nb)
+{
+	int num;
+	
+	
+	num = counter(nb);
+	if (nb < 0)
+	{
+		nb = -nb;
+		ft_putchar('-');
+	}
+	if (nb > 9)
+	{
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
+	}
+	else
+		ft_putchar(nb + '0');
+	return(num);
 }
