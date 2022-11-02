@@ -6,7 +6,7 @@
 /*   By: slazar <slazar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 03:42:05 by slazar            #+#    #+#             */
-/*   Updated: 2022/11/02 04:59:43 by slazar           ###   ########.fr       */
+/*   Updated: 2022/11/02 06:15:33 by slazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,14 @@ int counter(int nb)
 int	ft_putnbr(int nb)
 {
 	int num;
-	
-	
+
+	if (nb == -2147483648)
+		{
+			write (1, "-2147483648", 11);
+			return (11);
+		}
 	num = counter(nb);
+	
 	if (nb < 0)
 	{
 		nb = -nb;
@@ -47,3 +52,7 @@ int	ft_putnbr(int nb)
 		ft_putchar(nb + '0');
 	return(num);
 }
+// int main()
+// {
+// 	ft_putnbr(ft_putnbr(-42));
+// }

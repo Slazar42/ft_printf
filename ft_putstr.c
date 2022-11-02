@@ -6,7 +6,7 @@
 /*   By: slazar <slazar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 03:18:28 by slazar            #+#    #+#             */
-/*   Updated: 2022/11/02 05:07:20 by slazar           ###   ########.fr       */
+/*   Updated: 2022/11/02 06:13:20 by slazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_putstr(char *str)
 	if (!str)
 	{
 		write (1, "(null)", 6);
-		len += 6;
+		return (6);
 	}
 	else
 		while (*str)

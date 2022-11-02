@@ -6,7 +6,7 @@
 /*   By: slazar <slazar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 16:30:24 by slazar            #+#    #+#             */
-/*   Updated: 2022/11/02 05:00:19 by slazar           ###   ########.fr       */
+/*   Updated: 2022/11/02 06:25:33 by slazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ int	check(char *cr, va_list ptr)
 		count += ft_putstr(va_arg(ptr, char *));
 	else if (*cr == 'd')
 		count += ft_putnbr(va_arg(ptr, int));
-	// else if (*cr == 'p')
+	// else if (*cr == 'p');
 	// else if (*cr == 'i')
 	// else if (*cr == 'x')
 
-	return(count);
+	return (count);
 }
 
 int	ft_printf(const char *s, ...)
@@ -56,9 +56,11 @@ int	ft_printf(const char *s, ...)
 	return (len);
 }
 
-// int main()
-// {
-// 	char *c = "okk";
-// 	int t = ft_printf("  %s\n",c);
-// 	printf("%d",t);
-// }
+int main()
+{
+	char *s = "okk";
+	int d = -115;
+	int t = ft_printf("%s,%d\n",s,d);
+	printf("%d",t);
+	printf("%d",printf("%s,%d\n",s,d));
+}
