@@ -6,11 +6,11 @@
 /*   By: slazar <slazar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 03:12:17 by slazar            #+#    #+#             */
-/*   Updated: 2022/11/02 03:35:22 by slazar           ###   ########.fr       */
+/*   Updated: 2022/11/04 17:47:32 by slazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ft_printf.h"
+#include "ft_printf.h"
 
 int	ft_putchar(int c)
 {

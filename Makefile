@@ -1,58 +1,38 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: slazar <slazar@student.42.fr>              +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/11/04 19:16:55 by slazar            #+#    #+#              #
+#    Updated: 2022/11/04 19:21:16 by slazar           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-# NAME	= libftprintf.a
-
-# SRC		= ft_printf.c ft_putchar.c 
-# #ft_putstr.c\
-
-# OBJ		= $(NAME:.c=.o)
-
-# RM		= rm -f
-
-# CC		= gcc
-
-# FLAGS	= -Wall -Wextra -Werror
-
-# $(NAME) : $(OBJ)
-# 			ar rcs $(NAME) $(OBJ)
-# %.o		: %.c
-# 		  $(CC) $(FLAGS) -c $< -o $@
-# all : $(NAME)
-
-# clean : $(RM) $(OBJ)
-
-# fclean : clean
-# 		$(RM) $(NAME)
-
-# re : fclean all
-	
-
-SRC		= ft_printf.c ft_putchar.c ft_putnbr.c ft_putstr.c 
-#ft_print_puthe.c ft_print_putstr.c ft_print_putunbr.c
-
-OBJ		= $(SRC:.c=.o)
+SRC		= ft_printf.c ft_putchar.c ft_putnbr.c ft_putstr.c ft_unsigned_putnbr.c ft_xxp_adress.c ft_hexxa.c
 
 NAME	= libftprintf.a
 
 FLAGS	= -Wall -Wextra -Werror
 
-CC		= gcc
+CC		= cc
 
-RM		= rm -f
+RM		= rm -rf
 
-all:		$(NAME)
+OBJ		= $(SRC:.c=.o)
 
 $(NAME):	$(OBJ)
 			ar rcs $(NAME) $(OBJ)
-
+all:		$(NAME)
 %.o		:	%.c
 			$(CC) $(FLAGS) -c $< -o $@
-
-clean:
+clean	:
 			$(RM) $(OBJ)
 
-fclean:		clean
+fclean	:		clean 
 			$(RM) $(NAME)
 
-re:			fclean all	
+re		:	fclean all
 
-.PHONY:	all clean fclean re
+.PHONY	:	all clean fclean re

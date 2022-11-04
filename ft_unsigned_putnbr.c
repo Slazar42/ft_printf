@@ -1,34 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_Unsigned_putnbr.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slazar <slazar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/01 03:18:28 by slazar            #+#    #+#             */
-/*   Updated: 2022/11/04 17:51:12 by slazar           ###   ########.fr       */
+/*   Created: 2022/11/02 16:38:00 by slazar            #+#    #+#             */
+/*   Updated: 2022/11/04 17:49:47 by slazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putstr(char *str)
+int	counteru(unsigned int nb)
 {
-	int	len;
+	int	num;
 
-	len = 0;
-	if (!str)
+	num = 0;
+	if (nb <= 0)
+		num++;
+	while (nb)
 	{
-		write (1, "(null)", 6);
-		return (6);
+		nb = nb / 10;
+		num++;
 	}
+	return (num);
+}
+
+int	ft_unsigned_putnbr(unsigned int nb)
+{
+	int	num;
+
+	num = counteru(nb);
+	if (nb < 10 && nb >= 0)
+		ft_putchar(nb + '0');
 	else
 	{
-		while (*str)
-		{
-			len += ft_putchar(*str);
-			str++;
-		}
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
 	}
-	return (len);
+	return (num);
 }
