@@ -6,33 +6,33 @@
 #    By: slazar <slazar@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/04 19:16:55 by slazar            #+#    #+#              #
-#    Updated: 2022/11/04 19:21:16 by slazar           ###   ########.fr        #
+#    Updated: 2022/11/04 22:14:49 by slazar           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC		= ft_printf.c ft_putchar.c ft_putnbr.c ft_putstr.c ft_unsigned_putnbr.c ft_xxp_adress.c ft_hexxa.c
 
-NAME	= libftprintf.a
+NAME    = libftprintf.a
 
-FLAGS	= -Wall -Wextra -Werror
+SRC = ft_printf.c ft_putchar.c ft_putnbr.c ft_putstr.c ft_unsigned_putnbr.c ft_xxp_adress.c ft_hexxa.c\
 
-CC		= cc
+OBJ	= $(SRC:.c=.o)
 
-RM		= rm -rf
 
-OBJ		= $(SRC:.c=.o)
+FLAGS    = -Wall -Wextra -Werror
 
-$(NAME):	$(OBJ)
-			ar rcs $(NAME) $(OBJ)
-all:		$(NAME)
-%.o		:	%.c
-			$(CC) $(FLAGS) -c $< -o $@
-clean	:
-			$(RM) $(OBJ)
 
-fclean	:		clean 
-			$(RM) $(NAME)
+all:	$(NAME)
 
-re		:	fclean all
+$(NAME):    $(OBJ)
+	    ar rcs $(NAME) $(OBJ)
 
-.PHONY	:	all clean fclean re
+%.o	:    %.c
+	    cc $(FLAGS) -c $< -o $@
+
+clean:
+	    rm -f $(OBJ)
+
+fclean:	clean
+	    rm -f $(NAME)
+
+re:	    fclean all 
